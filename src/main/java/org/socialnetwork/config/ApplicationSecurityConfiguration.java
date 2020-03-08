@@ -33,7 +33,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                     .loginPage("/user/login")
                     .usernameParameter("username")// or email for login or both
                     .passwordParameter("password")
-                    .successForwardUrl("/home")
+                    .defaultSuccessUrl("/home",true)
                 .and()
                 .logout()
                     .logoutSuccessUrl("/")

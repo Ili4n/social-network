@@ -3,22 +3,7 @@
         lang="en"
         xmlns:th="http://www.thymeleaf.org"
         xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css}">
-    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js}"></script>
-    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js}"></script>
-    <style>
-            /* Set black background color, white text and some padding */
-            footer {
-                background-color: #555;
-                color: white;
-                padding: 15px;
-            }
-        </style>
-</head>
+<th:block th:include="~{fragments/head}"/>
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -42,10 +27,6 @@
         </div>
     </div>
 </nav>
-<footer class="container-fluid text-center">
-    <p>Social-Network</p>
-</footer>
+<th:block th:include="~{fragments/footer}"/>
 </body>
 </html>
-
-// TOVA DA E INDEX A HOME DA IMA ZAKOMENTIRANITE
