@@ -3,24 +3,23 @@
         lang="en"
         xmlns:th="http://www.thymeleaf.org"
         xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<link th:href="@{//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css}" rel="stylesheet" id="bootstrap-css">
-<script th:src="@{//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js}"></script>
-<script th:src="@{//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.1.0/css/all.css}" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<th:block th:include="~{fragments/head}"/>
 <div class="container">
     <br/>
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-            <form class="card card-sm">
+            <form class="card card-sm" th:action="@{search-profile}" method="get">
                 <div class="card-body row no-gutters align-items-center">
                     <div class="col-auto">
                         <i class="fas fa-search h4 text-body"></i>
                     </div>
                     <!--end of col-->
                     <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                        <input class="form-control form-control-lg form-control-borderless" name="firstName" type="search" placeholder="Firstname">
+                    </div>
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" name="email" type="search" placeholder="Email">
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
@@ -30,7 +29,20 @@
                 </div>
             </form>
         </div>
+        <table style="width:100%">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.firstName}" />
+                <td th:text="${user.lastName}" />
+                <td th:text="${user.email}" />
+            </tr>
+        </table>
         <!--end of col-->
     </div>
 </div>
+<th:block th:include="~{fragments/footer}"/>
 </html>

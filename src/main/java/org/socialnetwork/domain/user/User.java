@@ -34,3 +34,6 @@ public class User {
         return password;
     }
 }
+
+
+// trqbva ni unikalno id za vseki edin user

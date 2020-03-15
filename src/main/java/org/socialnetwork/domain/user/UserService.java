@@ -1,7 +1,9 @@
 package org.socialnetwork.domain.user;
 
-import org.socialnetwork.domain.user.User;
+import java.util.List;
 
 public interface UserService {
     void save(User user);
+
+    List<User> findUser(String firstName,String email);
 }
